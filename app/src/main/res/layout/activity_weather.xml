@@ -80,17 +80,18 @@
                 android:id="@+id/image_weather_symbol"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="@+id/text_todays_date"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/text_label_today"
-                app:srcCompat="@drawable/ic_clear_day" />
+                />
 
             <TextView
                 android:id="@+id/text_label_today"
                 style="@style/TextViewHeaderStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/today"
                 android:textSize="24sp"
@@ -154,7 +155,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_city_name"
-                app:srcCompat="@drawable/sunny_day" />
+                tools:srcCompat="@drawable/sunny_day" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

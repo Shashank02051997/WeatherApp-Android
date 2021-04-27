@@ -18,6 +18,10 @@ import org.kodein.di.generic.instance
 
 class WeatherActivity : AppCompatActivity(), KodeinAware {
 
+    companion object {
+        private const val WEATHER_API_IMAGE_ENDPOINT = "http://openweathermap.org/img/wn/"
+    }
+
     override val kodein by closestKodein()
     private lateinit var dataBind: ActivityWeatherBinding
     private val factory: WeatherViewModelFactory by instance()
@@ -55,11 +59,17 @@ class WeatherActivity : AppCompatActivity(), KodeinAware {
                     dataBind.constraintLayoutShowingTemp.show()
                     dataBind.inputFindCityWeather.text?.clear()
                     state.data.let { weatherDetail ->
-                        dataBind.textTodaysDate.text = AppUtils.getCurrentDateTime(AppConstants.DATE_FORMAT)
+                        val iconCode = weatherDetail.icon?.replace("n", "d")
+                        AppUtils.setGlideImage(
+                            dataBind.imageWeatherSymbol,
+                            WEATHER_API_IMAGE_ENDPOINT + "${iconCode}@4x.png"
+                        )
+                        changeBgAccToTemp(iconCode)
+                        dataBind.textTodaysDate.text =
+                            AppUtils.getCurrentDateTime(AppConstants.DATE_FORMAT)
                         dataBind.textTemperature.text = weatherDetail.temp.toString()
                         dataBind.textCityName.text =
                             "${weatherDetail.cityName?.capitalize()}, ${weatherDetail.countryName}"
-
                     }
 
                 }
@@ -70,8 +80,12 @@ class WeatherActivity : AppCompatActivity(), KodeinAware {
         })
     }
 
-    private fun changeIconAndBgAccToTemp(){
-
+    private fun changeBgAccToTemp(iconCode: String?) {
+        when (iconCode) {
+            "01d", "02d", "03d" -> dataBind.imageWeatherHumanReaction.setImageResource(R.drawable.sunny_day)
+            "04d", "09d", "10d", "11d" -> dataBind.imageWeatherHumanReaction.setImageResource(R.drawable.raining)
+            "13d", "50d" -> dataBind.imageWeatherHumanReaction.setImageResource(R.drawable.snowfalling)
+        }
     }
 
 }

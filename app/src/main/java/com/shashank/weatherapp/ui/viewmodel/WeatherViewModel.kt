@@ -31,6 +31,7 @@ class WeatherViewModel(private val repository: WeatherRepository) :
                 addWeatherDetailIntoDb(weatherResponse)
                 withContext(Dispatchers.Main) {
                     val weatherDetail = WeatherDetail()
+                    weatherDetail.icon = weatherResponse.weather.first().icon
                     weatherDetail.cityName = weatherResponse.name
                     weatherDetail.countryName = weatherResponse.sys.country
                     weatherDetail.temp = weatherResponse.main.temp
@@ -67,6 +68,7 @@ class WeatherViewModel(private val repository: WeatherRepository) :
     private suspend fun addWeatherDetailIntoDb(weatherResponse: WeatherDataResponse) {
         val weatherDetail = WeatherDetail()
         weatherDetail.id = weatherResponse.id
+        weatherDetail.icon = weatherResponse.weather.first().icon
         weatherDetail.cityName = weatherResponse.name.toLowerCase()
         weatherDetail.countryName = weatherResponse.sys.country
         weatherDetail.temp = weatherResponse.main.temp
