@@ -36,7 +36,6 @@ class WeatherActivity : AppCompatActivity(), KodeinAware {
         observeAPICall()
     }
 
-
     private fun setupUI() {
         initializeRecyclerView()
         dataBind.inputFindCityWeather.setOnEditorActionListener { view, actionId, event ->

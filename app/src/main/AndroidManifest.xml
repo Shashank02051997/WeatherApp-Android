@@ -17,6 +17,7 @@
         android:theme="@style/AppTheme"
         tools:targetApi="n">
         <activity android:name=".ui.activities.WeatherActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

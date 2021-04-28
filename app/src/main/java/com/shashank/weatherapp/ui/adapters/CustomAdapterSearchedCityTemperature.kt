@@ -51,7 +51,8 @@ class CustomAdapterSearchedCityTemperature :
                     imageWeatherSymbol,
                     AppConstants.WEATHER_API_IMAGE_ENDPOINT + "${iconCode}@4x.png"
                 )
-                textCityName.text = "${weatherDetail.cityName?.capitalize()}, ${weatherDetail.countryName}"
+                textCityName.text =
+                    "${weatherDetail.cityName?.capitalize()}, ${weatherDetail.countryName}"
                 textTemperature.text = weatherDetail.temp.toString()
                 textDateTime.text = weatherDetail.dateTime
             }

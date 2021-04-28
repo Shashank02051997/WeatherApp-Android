@@ -11,8 +11,8 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
-import org.kodein.di.generic.singleton
 import org.kodein.di.generic.provider
+import org.kodein.di.generic.singleton
 
 class WeatherApplication : Application(), KodeinAware {
 
@@ -27,8 +27,4 @@ class WeatherApplication : Application(), KodeinAware {
     }
 
 
-    override fun onCreate() {
-        super.onCreate()
-
-    }
 }

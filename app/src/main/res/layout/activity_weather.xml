@@ -58,118 +58,126 @@
         <ImageView
             android:id="@+id/image_city"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="64dp"
             android:scaleType="centerCrop"
             android:src="@drawable/city_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_label_search_for_city" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_layout_showing_temp"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:padding="16dp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/app_bar_layout">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_searched_city_temperature"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout_showing_temp"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:itemCount="10"
-                tools:listitem="@layout/list_item_searched_city_temperature" />
-
-            <ImageView
-                android:id="@+id/image_weather_symbol"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="@+id/text_todays_date"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/text_label_today" />
-
-            <TextView
-                android:id="@+id/text_label_today"
-                style="@style/TextViewHeaderStyle"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/today"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/image_weather_symbol"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_view_searched_city_temperature" />
+                android:padding="16dp"
+                android:visibility="gone">
 
-            <TextView
-                android:id="@+id/text_todays_date"
-                style="@style/TextViewNormalStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/text_label_today"
-                app:layout_constraintTop_toBottomOf="@+id/text_label_today"
-                tools:text="Fri, 7 Sep" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_searched_city_temperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/list_item_searched_city_temperature" />
 
-            <TextView
-                android:id="@+id/text_temperature"
-                style="@style/TextViewHeaderStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:textSize="84sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_todays_date"
-                tools:text="28" />
+                <ImageView
+                    android:id="@+id/image_weather_symbol"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_todays_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/text_label_today" />
 
-            <TextView
-                android:id="@+id/text_label_degree"
-                style="@style/TextViewBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="\u2103"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@+id/text_temperature"
-                app:layout_constraintTop_toTopOf="@+id/text_temperature" />
+                <TextView
+                    android:id="@+id/text_label_today"
+                    style="@style/TextViewHeaderStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/today"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/image_weather_symbol"
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_view_searched_city_temperature" />
 
-            <TextView
-                android:id="@+id/text_city_name"
-                style="@style/TextViewBodyStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_temperature"
-                tools:text="Ajmer, Rajasthan" />
+                <TextView
+                    android:id="@+id/text_todays_date"
+                    style="@style/TextViewNormalStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/text_label_today"
+                    app:layout_constraintTop_toBottomOf="@+id/text_label_today"
+                    tools:text="Fri, 7 Sep" />
 
-            <ImageView
-                android:id="@+id/image_weather_human_reaction"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_city_name"
-                tools:srcCompat="@drawable/sunny_day" />
+                <TextView
+                    android:id="@+id/text_temperature"
+                    style="@style/TextViewHeaderStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:textSize="84sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_todays_date"
+                    tools:text="28" />
+
+                <TextView
+                    android:id="@+id/text_label_degree"
+                    style="@style/TextViewBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="\u2103"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/text_temperature"
+                    app:layout_constraintTop_toTopOf="@+id/text_temperature" />
+
+                <TextView
+                    android:id="@+id/text_city_name"
+                    style="@style/TextViewBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_temperature"
+                    tools:text="Ajmer, Rajasthan" />
+
+                <ImageView
+                    android:id="@+id/image_weather_human_reaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_city_name"
+                    tools:srcCompat="@drawable/sunny_day" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
