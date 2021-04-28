@@ -36,6 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:textSize="10sp"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintEnd_toEndOf="@+id/text_city_name"
             app:layout_constraintStart_toStartOf="@+id/text_city_name"
             app:layout_constraintTop_toBottomOf="@+id/text_city_name"

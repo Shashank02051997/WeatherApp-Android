@@ -46,9 +46,10 @@ class CustomAdapterSearchedCityTemperature :
         @SuppressLint("SetTextI18n")
         fun bindItems(weatherDetail: WeatherDetail) {
             binding.apply {
+                val iconCode = weatherDetail.icon?.replace("n", "d")
                 AppUtils.setGlideImage(
                     imageWeatherSymbol,
-                    AppConstants.WEATHER_API_IMAGE_ENDPOINT + "${weatherDetail.icon}@4x.png"
+                    AppConstants.WEATHER_API_IMAGE_ENDPOINT + "${iconCode}@4x.png"
                 )
                 textCityName.text = "${weatherDetail.cityName?.capitalize()}, ${weatherDetail.countryName}"
                 textTemperature.text = weatherDetail.temp.toString()
