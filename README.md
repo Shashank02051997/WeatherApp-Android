@@ -14,6 +14,8 @@
 
 <img src="https://github.com/Shashank02051997/WeatherApp-Android/blob/main/Screenshot/Screenshot_20210428-050132.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/WeatherApp-Android/blob/main/Screenshot/Screenshot_20210428-050143.png" height="600" width="300" hspace="40">
 
+<img src="https://github.com/Shashank02051997/WeatherApp-Android/blob/main/Screenshot/Screenshot_20210428-055501.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/WeatherApp-Android/blob/main/Screenshot/Screenshot_20210428-055510.png" height="600" width="300" hspace="40">
+
 
 
 ## Built With 🛠
