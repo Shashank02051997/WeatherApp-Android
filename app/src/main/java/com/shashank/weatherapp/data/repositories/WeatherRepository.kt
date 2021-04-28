@@ -22,4 +22,6 @@ class WeatherRepository(
     suspend fun fetchWeatherDetail(cityName: String): WeatherDetail? =
         db.getWeatherDao().fetchWeatherByCity(cityName)
 
+    suspend fun fetchAllWeatherDetails(): List<WeatherDetail> =
+        db.getWeatherDao().fetchAllWeatherDetails()
 }

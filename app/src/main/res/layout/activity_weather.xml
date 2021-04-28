@@ -32,8 +32,8 @@
                     style="@style/SearchViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:hint="@string/search_city_weather"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -76,6 +76,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/app_bar_layout">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_searched_city_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="10"
+                tools:listitem="@layout/list_item_searched_city_temperature" />
+
             <ImageView
                 android:id="@+id/image_weather_symbol"
                 android:layout_width="64dp"
@@ -83,8 +95,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="@+id/text_todays_date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/text_label_today"
-                />
+                app:layout_constraintTop_toTopOf="@+id/text_label_today" />
 
             <TextView
                 android:id="@+id/text_label_today"
@@ -96,7 +107,7 @@
                 android:text="@string/today"
                 android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@+id/image_weather_symbol"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_searched_city_temperature" />
 
             <TextView
                 android:id="@+id/text_todays_date"

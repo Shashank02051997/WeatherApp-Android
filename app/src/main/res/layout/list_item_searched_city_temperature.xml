@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_outline_square_rounded_shape_bg"
+        android:layout_margin="8dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/image_weather_symbol"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_city_name"
+            style="@style/TextViewBodyStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/image_weather_symbol"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ajmer, IN" />
+
+        <TextView
+            android:id="@+id/text_date_time"
+            style="@style/TextViewNormalStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_city_name"
+            app:layout_constraintStart_toStartOf="@+id/text_city_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_city_name"
+            tools:ignore="SmallSp"
+            tools:text="Fri, 7 Sep" />
+
+
+        <TextView
+            android:id="@+id/text_temperature"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_date_time"
+            app:layout_constraintStart_toEndOf="@+id/text_city_name"
+            app:layout_constraintTop_toTopOf="@+id/text_city_name"
+            tools:text="28" />
+
+        <TextView
+            android:id="@+id/text_label_degree"
+            style="@style/TextViewBodyStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u2103"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/text_temperature"
+            app:layout_constraintTop_toTopOf="@+id/text_temperature" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

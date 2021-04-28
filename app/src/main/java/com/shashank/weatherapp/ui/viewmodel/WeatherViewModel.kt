@@ -20,6 +20,11 @@ class WeatherViewModel(private val repository: WeatherRepository) :
     val weatherLiveData: LiveData<Event<State<WeatherDetail>>>
         get() = _weatherLiveData
 
+    private val _weatherDetailListLiveData =
+        MutableLiveData<Event<State<List<WeatherDetail>>>>()
+    val weatherDetailListLiveData: LiveData<Event<State<List<WeatherDetail>>>>
+        get() = _weatherDetailListLiveData
+
     private lateinit var weatherResponse: WeatherDataResponse
 
     private fun findCityWeather(cityName: String) {
@@ -82,9 +87,9 @@ class WeatherViewModel(private val repository: WeatherRepository) :
             withContext(Dispatchers.Main) {
                 if (weatherDetail != null) {
                     // Return true of current date and time is greater then the saved date and time of weather searched
-                    if(AppUtils.isTimeExpired(weatherDetail.dateTime)){
+                    if (AppUtils.isTimeExpired(weatherDetail.dateTime)) {
                         findCityWeather(cityName)
-                    }else{
+                    } else {
                         _weatherLiveData.postValue(
                             Event(
                                 State.success(
@@ -100,6 +105,18 @@ class WeatherViewModel(private val repository: WeatherRepository) :
 
             }
         }
+    }
 
+    fun fetchAllWeatherDetailsFromDb() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val weatherDetailList = repository.fetchAllWeatherDetails()
+            withContext(Dispatchers.Main) {
+                _weatherDetailListLiveData.postValue(
+                    Event(
+                        State.success(weatherDetailList)
+                    )
+                )
+            }
+        }
     }
 }
