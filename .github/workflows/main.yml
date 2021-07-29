@@ -35,27 +35,8 @@ jobs:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
 
-  instrumentation-test:
-    needs: [unit-test]
-    runs-on: macos-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Run espresso tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew connectedCheck
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: instrumentation_test_report
-          path: app/build/reports/androidTests/connected/
-
   package:
-    needs: [instrumentation-test]
+    needs: [unit-test]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
