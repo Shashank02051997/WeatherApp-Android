@@ -54,5 +54,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: imageium.apk
+          name: weather.apk
           path: app/build/outputs/apk/debug/app-debug.apk
