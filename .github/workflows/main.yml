@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v3
+      - name: Run lint
+        run: ./gradlew lintDebug
       - name: Upload html test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: lint.html
           path: app/build/reports/lint-results-debug.html
@@ -24,13 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run tests
         run: ./gradlew test
 
       - name: Upload test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
